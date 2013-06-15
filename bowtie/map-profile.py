@@ -15,6 +15,8 @@ for n, row in enumerate(r):
 
     mismatch_list = mismatches.split(',')
     for mismatch in mismatch_list:
+        if not mismatch:
+            continue
         mismatch = mismatch.split(':')
         mismatch = mismatch[0]
         mismatch = int(mismatch)
