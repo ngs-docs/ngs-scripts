@@ -28,6 +28,7 @@ against_db = load_names(against_seqs)
 output = csv.writer(sys.stdout)
  
 # parse BLAST records
+print >>sys.stderr, 'parsing BLAST output'
 for record in blastparser.parse_fp(fp):
     for hit in record:
         for match in hit.matches:
