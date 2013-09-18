@@ -7,7 +7,7 @@ def collect_best_hits(filename):
     d = {}
     for n, record in enumerate(blastparser.parse_fp(open(filename))):
         if n % 25000 == 0:
-            print '...', filename, n
+            print >>sys.stderr, '...', filename, n
         best_score = None
         for hit in record.hits:
             for match in hit.matches:
@@ -67,10 +67,7 @@ ab_dict = collect_best_hits(ab)
 print >>sys.stderr, 'parsing BLAST output', ba
 ba_dict = collect_best_hits(ba)
 
-print ab_dict.items()[:5]
-print ba_dict.items()[:5]
-
-print 'calculating reciprocal best hits'
+print >>sys.stderr, 'calculating reciprocal best hits'
 dd = {}
 ee = {}
 for k in ab_dict:
