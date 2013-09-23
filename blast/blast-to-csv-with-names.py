@@ -7,7 +7,7 @@ def load_names(filename):
     d = {}
     for record in screed.open(filename):
         if record.name.startswith('gi|'):
-           ident = record.name.split('|', 2)[2]
+           ident = record.name.split('|', 2)[2:]
         else:
            ident = record.name
         d[ident] = record.description
